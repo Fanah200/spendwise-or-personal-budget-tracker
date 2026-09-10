@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise - Personal Budget & Expense Tracker</title>
+    <!-- Links your CSS stylesheet from Part 4 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Wrapper to group the entire portfolio app together -->
+    <div id="tracker-app">
+
+        <!-- PART 1: HEADER SECTION -->
+        <header class="app-header">
+            <h1>SpendWise</h1>
+            <p class="app-subtitle">Personal Budget & Expense Tracker</p>
+        </header>
+
+        <!-- DASHBOARD DISPLAY SECTION -->
+        <section class="dashboard-container">
+            <div class="balance-block">
+                <h2>Your Balance</h2>
+                <h3 id="current-balance">$0.00</h3>
+            </div>
+            
+            <div class="summary-cards">
+                <div class="card income-card">
+                    <h4>Income</h4>
+                    <p id="money-plus" class="money plus">+$0.00</p>
+                </div>
+                <div class="card expense-card">
+                    <h4>Expenses</h4>
+                    <p id="money-minus" class="money minus">-$0.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: YOUR EXPENSES PLACEHOLDER SECTION -->
+        <section class="history-container">
+            <h3>Your Expenses</h3>
+            <ul id="transaction-list" class="transaction-list">
+                <li class="transaction-item income-item">
+                    <span>Freelance Design</span>
+                    <span>+$400.00</span>
+                </li>
+                <li class="transaction-item expense-item">
+                    <span>Groceries</span>
+                    <span>-$65.00</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- PART 2: THE ADD EXPENSE SECTION -->
+        <section class="form-container">
+            <h3>Add New Transaction</h3>
+            <form id="transaction-form">
+                
+                <div class="form-control">
+                    <label for="text-input">Expense Name</label>
+                    <input type="text" id="text-input" placeholder="e.g., Grocery Shopping" required />
+                </div>
+                
+                <div class="form-control">
+                    <label for="amount-input">Amount</label>
+                    <input type="number" step="0.01" id="amount-input" placeholder="e.g., -20.00" required />
+                </div>
+
+                <div class="form-control">
+                    <label for="category-input">Category</label>
+                    <select id="category-input" required>
+                        <option value="">-- Select a Category --</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="salary">Salary/Income</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Add Transaction</button>
+            </form>
+        </section>
+
+    </div> <!-- End of tracker-app wrapper -->
+
+    <!-- Links your script file -->
+    <script src="script.js"></script>
+</body>
+</html>
