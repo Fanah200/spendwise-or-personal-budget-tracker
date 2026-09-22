@@ -1,46 +1,46 @@
 /* ==========================================
-   1. GOOGLE FONTS & DESIGN VARIABLES (Rubric 1 & 2)
+   1. CORRECT GOOGLE FONTS IMPORT & SYSTEM VARIABLES
    ========================================== */
 @import url('https://googleapis.com');
 
 :root {
-  /* Intentional Color Palette */
-  --bg-page: #F8FAFC;          /* Soft light neutral background canvas */
-  --bg-card: #FFFFFF;          /* Pure white backgrounds for your distinct cards */
-  --text-main: #1E293B;        /* Deep Slate for high-contrast legible reading */
-  --text-muted: #64748B;       /* Muted grey for supporting labels */
-  --primary: #0F172A;          /* Navy corporate identity for headers */
-  --accent: #0D9488;           /* Teal for action buttons & interactive focus outlines */
-  --accent-hover: #0F766E;     /* Rich teal tone change for active transitions */
-  --border-color: #E2E8F0;     /* Soft lines instead of heavy grid lines */
-  --zebra-row: #F8FAFC;        /* Light visual alternate tint for rows */
+  /* Cohesive Financial Color Palette */
+  --bg-page: #F8FAFC;          
+  --bg-card: #FFFFFF;          
+  --text-main: #1E293B;        
+  --text-muted: #64748B;       
+  --primary: #0F172A;          /* Navy corporate anchor */
+  --accent: #0D9488;           /* Teal call-to-actions */
+  --accent-hover: #0F766E;     
+  --border-color: #E2E8F0;     
+  --zebra-row: #F8FAFC;        
   
-  /* Shared Box Model Tokens */
-  --radius-lg: 12px;           /* Large soft curves for main visual panels */
-  --radius-sm: 6px;            /* Tight modern curvature for inputs/buttons */
+  /* CSS Box Model Spatial Tokens */
+  --radius-lg: 12px;           
+  --radius-sm: 6px;            
   --transition-smooth: all 0.2s ease-in-out;
 }
 
 /* ==========================================
-   2. GLOBAL BODY & ACCESSIBILITY SETUP
+   2. GLOBAL BODY & CANVAS RESET
    ========================================== */
 * {
-  box-sizing: border-box;      /* Prevents structural breakdown from element padding */
+  box-sizing: border-box;      
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif; /* Fallback typography layout control */
   background-color: var(--bg-page);
   color: var(--text-main);
   line-height: 1.5;
   padding: 40px 20px;
-  max-width: 850px;            /* Nicely limits layout expansion on wide monitor viewports */
-  margin: 0 auto;              /* Centers the application canvas horizontally */
+  max-width: 800px;            
+  margin: 0 auto;              
 }
 
-/* Base Heading Setup to achieve Typography Visual Hierarchy */
+/* Montserrat Headings Rule */
 h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
   color: var(--primary);
@@ -48,36 +48,47 @@ h1, h2, h3, h4 {
   margin-bottom: 8px;
 }
 
-/* ==========================================
-   3. CSS BOX MODEL: THE DISTINCT CARDS (Rubric 4)
-   ========================================== */
+p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
 
-/* Card 1: Page Heading Section */
+/* ==========================================
+   3. THE CARD ARCHITECTURE (Box Model Containers)
+   ========================================== */
 .app-header {
   background-color: var(--bg-card);
   padding: 30px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
-  margin-bottom: 24px;         /* Distinct external separation between page sections */
+  margin-bottom: 24px;         
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
 .app-header h1 {
   font-size: 2.25rem;
-  color: var(--accent);        /* Branding accent applied to main title */
+  color: var(--accent);        
 }
 
-/* Collapsible Tips Area */
 .tips-container {
-  background-color: #EDF4F9 !important;
+  background-color: #EDF4F9;
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg) !important;
-  padding: 20px !important;
-  margin-bottom: 24px !important;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 24px;
 }
 
-/* Dashboard Metrics Section */
+.tips-container summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.tips-container p {
+  margin-top: 10px;
+}
+
 .dashboard-container {
   background-color: var(--bg-card);
   padding: 30px;
@@ -97,8 +108,9 @@ h1, h2, h3, h4 {
 }
 
 .balance-block h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--primary);
+  margin-top: 5px;
 }
 
 .summary-cards {
@@ -117,14 +129,14 @@ h1, h2, h3, h4 {
 
 .income-card h4 { color: #16A34A; }
 .expense-card h4 { color: #DC2626; }
+.card p { font-size: 1.25rem; font-weight: bold; margin-top: 4px; }
 
-/* Card 2: Add Expense Form Section */
 .form-container {
   background-color: var(--bg-card);
   padding: 30px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
-  margin-bottom: 24px;         /* Clear separation margin from table card below */
+  margin-bottom: 24px;         
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -135,7 +147,6 @@ h1, h2, h3, h4 {
   padding-bottom: 8px;
 }
 
-/* Card 3: Expense Table History Section */
 .history-container {
   background-color: var(--bg-card);
   padding: 30px;
@@ -150,16 +161,23 @@ h1, h2, h3, h4 {
   margin-bottom: 20px;
 }
 
-/* Media Block Highlights */
 .media-container {
-  background-color: var(--bg-card) !important;
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border-color) !important;
+  background-color: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.video-frame {
+  margin-top: 15px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
 /* ==========================================
-   4. FORM STYLING ELEMENTS (Rubric 3)
+   4. ADD EXPENSE FORM STYLING ELEMENTS
    ========================================== */
 .form-control {
   margin-bottom: 18px;
@@ -180,7 +198,7 @@ h1, h2, h3, h4 {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   width: 100%;
-  padding: 12px 16px;          /* Generous comfortable target spacing boundaries */
+  padding: 12px 16px;          
   color: var(--text-main);
   background-color: #FFFFFF;
   border: 1px solid var(--border-color);
@@ -192,10 +210,9 @@ h1, h2, h3, h4 {
 .form-control select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15); /* Modern soft-glow aura outline indicator */
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15); 
 }
 
-/* Cohesive Button Architecture */
 .submit-btn {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
@@ -206,7 +223,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-sm);
   padding: 14px 24px;
   cursor: pointer;
-  width: 100%;                 /* Adaptive width controls */
+  width: 100%;                 
   transition: var(--transition-smooth);
   text-align: center;
   margin-top: 10px;
@@ -217,27 +234,26 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================
-   5. EXPENSE TABLE STYLING (Rubric 3)
+   5. EXPENSE TABLE STYLING
    ========================================== */
 .expense-table {
   width: 100%;
-  border-collapse: separate;   /* Required to respect card border curvature edges */
+  border-collapse: separate;   
   border-spacing: 0;
   margin-top: 15px;
   background-color: #FFFFFF;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  overflow: hidden;            /* Prevents background row color from spilling over rounded canvas */
+  overflow: hidden;            
 }
 
 .expense-table th, 
 .expense-table td {
-  padding: 14px 18px;          /* Clean spatial safety margins inside tracking boxes */
+  padding: 14px 18px;          
   text-align: left;
   font-size: 0.95rem;
 }
 
-/* Distinct Header Row Blocks */
 .expense-table thead tr {
   background-color: var(--primary);
 }
@@ -258,16 +274,25 @@ h1, h2, h3, h4 {
 }
 
 .expense-table tbody tr:last-child td {
-  border-bottom: none;         /* Cleans layout lines on terminal row borders */
+  border-bottom: none;         
 }
 
-/* Positional Zebra Striping Layer */
 .expense-table tbody tr:nth-child(even) {
   background-color: var(--zebra-row);
 }
 
-/* Interactive Rows Interaction Loop */
 .expense-table tbody tr:hover {
-  background-color: #F1F5F9;   /* Sleek background change indicator on active hover paths */
+  background-color: #F1F5F9;   
   transition: var(--transition-smooth);
+}
+
+/* Financial Micro-UI State Modifiers */
+.amount-income {
+  color: #16A34A !important;
+  font-weight: 600;
+}
+
+.amount-expense {
+  color: #DC2626 !important;
+  font-weight: 600;
 }
