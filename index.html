@@ -3,73 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpendWise - Personal Budget & Expense Tracker</title>
-    <!-- Links your CSS stylesheet from Part 4 -->
-    <link rel="stylesheet" href="styles.css">
+    <title>SpendWise - Personal Budget Tracker</title>
 </head>
-<body>
+<body style="font-family: sans-serif; background-color: #F8FAFC; color: #1E293B; margin: 0; padding: 40px 20px;">
 
-    <!-- Main Wrapper to group the entire portfolio app together -->
-    <div id="tracker-app">
+    <div id="tracker-app" style="max-width: 800px; margin: 0 auto;">
 
-        <!-- PART 1: HEADER SECTION -->
-        <header class="app-header">
-            <h1>SpendWise</h1>
-            <p class="app-subtitle">Personal Budget & Expense Tracker</p>
+        <!-- CARD 1: THE PAGE HEADING SECTION -->
+        <header class="app-header" style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; border: 1px solid #E2E8F0; margin-bottom: 24px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <h1 style="margin: 0 0 8px 0; color: #0F172A; font-size: 2.25rem;">SpendWise</h1>
+            <p style="margin: 0; color: #64748B; font-size: 0.95rem;">Personal Budget & Expense Tracker</p>
         </header>
 
-        <!-- DASHBOARD DISPLAY SECTION -->
-        <section class="dashboard-container">
-            <div class="balance-block">
-                <h2>Your Balance</h2>
-                <h3 id="current-balance">$0.00</h3>
+        <!-- INFORMATION BOX -->
+        <section class="tips-container" style="background-color: #EDF4F9; padding: 20px; border-radius: 12px; border: 1px solid #E2E8F0; margin-bottom: 24px;">
+            <details>
+                <summary style="font-weight: bold; cursor: pointer; color: #0F172A;">How to use this tracker</summary>
+                <p style="margin-top: 10px; margin-bottom: 0; color: #64748B; font-size: 0.95rem;">Fill out the form below with your expense details, select a category, and click "Add Transaction". Your logged balance history is displayed in the table to keep your finances on track!</p>
+            </details>
+        </section>
+
+        <!-- DASHBOARD MODULE -->
+        <section class="dashboard-container" style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; border: 1px solid #E2E8F0; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div class="balance-block" style="text-align: center; padding-bottom: 15px; border-bottom: 1px solid #E2E8F0; margin-bottom: 20px;">
+                <h2 style="margin: 0 0 4px 0; color: #0F172A; font-size: 1.25rem;">Your Balance</h2>
+                <h3 style="margin: 0; font-size: 2.5rem; color: #0D9488;">$0.00</h3>
             </div>
             
-            <div class="summary-cards">
-                <div class="card income-card">
-                    <h4>Income</h4>
-                    <p id="money-plus" class="money plus">+$0.00</p>
+            <div class="summary-cards" style="display: flex; gap: 15px;">
+                <div class="card income-card" style="flex: 1; padding: 15px; border-radius: 6px; background-color: #F8FAFC; border: 1px solid #E2E8F0; text-align: center;">
+                    <h4 style="margin: 0 0 4px 0; color: #16A34A; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em;">Income</h4>
+                    <p style="margin: 0; font-size: 1.25rem; font-weight: bold; color: #16A34A;">+$0.00</p>
                 </div>
-                <div class="card expense-card">
-                    <h4>Expenses</h4>
-                    <p id="money-minus" class="money minus">-$0.00</p>
+                <div class="card expense-card" style="flex: 1; padding: 15px; border-radius: 6px; background-color: #F8FAFC; border: 1px solid #E2E8F0; text-align: center;">
+                    <h4 style="margin: 0 0 4px 0; color: #DC2626; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em;">Expenses</h4>
+                    <p style="margin: 0; font-size: 1.25rem; font-weight: bold; color: #DC2626;">-$0.00</p>
                 </div>
             </div>
         </section>
 
-        <!-- PART 3: YOUR EXPENSES PLACEHOLDER SECTION -->
-        <section class="history-container">
-            <h3>Your Expenses</h3>
-            <ul id="transaction-list" class="transaction-list">
-                <li class="transaction-item income-item">
-                    <span>Freelance Design</span>
-                    <span>+$400.00</span>
-                </li>
-                <li class="transaction-item expense-item">
-                    <span>Groceries</span>
-                    <span>-$65.00</span>
-                </li>
-            </ul>
+        <!-- CARD 2: THE EXPENSE TABLE SECTION -->
+        <section class="history-container" style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; border: 1px solid #E2E8F0; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <h3 style="margin: 0 0 15px 0; color: #0F172A; font-size: 1.35rem;">Your Expenses</h3>
+            <table class="expense-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="background-color: #0F172A; color: #FFFFFF;">
+                        <th style="padding: 12px; border-bottom: 2px solid #E2E8F0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Name</th>
+                        <th style="padding: 12px; border-bottom: 2px solid #E2E8F0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Amount</th>
+                        <th style="padding: 12px; border-bottom: 2px solid #E2E8F0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Category</th>
+                        <th style="padding: 12px; border-bottom: 2px solid #E2E8F0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #FFFFFF;">
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">Freelance Design</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0; color: #16A34A; font-weight: bold;">+$400.00</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">Salary/Income</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">2026-09-10</td>
+                    </tr>
+                    <tr style="background-color: #F8FAFC;">
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">Groceries</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0; color: #DC2626; font-weight: bold;">-$65.00</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">Groceries</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">2026-09-11</td>
+                    </tr>
+                    <tr style="background-color: #FFFFFF;">
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">Apartment Rent</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0; color: #DC2626; font-weight: bold;">-$500.00</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">Rent</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #E2E8F0;">2026-09-01</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
-        <!-- PART 2: THE ADD EXPENSE SECTION -->
-        <section class="form-container">
-            <h3>Add New Transaction</h3>
+        <!-- CARD 3: THE ADD EXPENSE FORM SECTION -->
+        <section class="form-container" style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; border: 1px solid #E2E8F0; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <h3 style="margin: 0 0 20px 0; color: #0F172A; font-size: 1.35rem;">Add New Transaction</h3>
             <form id="transaction-form">
                 
-                <div class="form-control">
-                    <label for="text-input">Expense Name</label>
-                    <input type="text" id="text-input" placeholder="e.g., Grocery Shopping" required />
+                <div style="margin-bottom: 18px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; color: #64748B; margin-bottom: 6px;">Expense Name</label>
+                    <input type="text" placeholder="e.g., Grocery Shopping" style="width: 100%; padding: 12px 16px; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 1rem;" required />
                 </div>
                 
-                <div class="form-control">
-                    <label for="amount-input">Amount</label>
-                    <input type="number" step="0.01" id="amount-input" placeholder="e.g., -20.00" required />
+                <div style="margin-bottom: 18px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; color: #64748B; margin-bottom: 6px;">Amount</label>
+                    <input type="number" step="0.01" placeholder="e.g., -20.00" style="width: 100%; padding: 12px 16px; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 1rem;" required />
                 </div>
 
-                <div class="form-control">
-                    <label for="category-input">Category</label>
-                    <select id="category-input" required>
+                <div style="margin-bottom: 18px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; color: #64748B; margin-bottom: 6px;">Category</label>
+                    <select style="width: 100%; padding: 12px 16px; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 1rem; background-color: #FFFFFF;" required>
                         <option value="">-- Select a Category --</option>
                         <option value="groceries">Groceries</option>
                         <option value="utilities">Utilities</option>
@@ -79,13 +104,16 @@
                     </select>
                 </div>
 
-                <button type="submit" class="submit-btn">Add Transaction</button>
+                <div style="margin-bottom: 24px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; color: #64748B; margin-bottom: 6px;">Date</label>
+                    <input type="date" style="width: 100%; padding: 12px 16px; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 1rem;" required />
+                </div>
+
+                <button type="button" style="width: 100%; padding: 14px; background-color: #0D9488; color: #FFFFFF; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer;">Add Transaction</button>
             </form>
         </section>
 
-    </div> <!-- End of tracker-app wrapper -->
+    </div>
 
-    <!-- Links your script file -->
-    <script src="script.js"></script>
 </body>
 </html>
